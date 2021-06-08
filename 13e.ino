@@ -20,15 +20,15 @@
 #define ESP32_RESET 3 // AirLift ESP32 reset pin
 #define SPIWIFI_ACK 2 // AirLift ESP32 ready pin
 #define ESP32_GPIO0 -1 // AirLift ESP32 pin not used
-#define WLAN_SSID "Lagom" // WLAN router SSID
-#define WLAN_PASS "63948100905083530879" // WLAN router key
-//#define WLAN_SSID "Bra" // Smartphone hotspot SSID
-//#define WLAN_PASS "dcb62d5396ad" // Smartphone hotspot key
+#define WLAN_SSID "#" // WLAN router SSID
+#define WLAN_PASS "#" // WLAN router key
+//#define WLAN_SSID "#" // Smartphone hotspot SSID
+//#define WLAN_PASS "#" // Smartphone hotspot key
 // AIO
 #define AIO_SERVER "io.adafruit.com" // MQTT broker/server host
 #define AIO_SERVERPORT 8883 // Secure port, 1883 insecure port
-#define AIO_USERNAME "LagomBra" // AIO user name
-#define AIO_KEY "aio_yiNy61vnq6a53jc5p8zbQm4cpHov" // AIO key
+#define AIO_USERNAME "#" // AIO user name
+#define AIO_KEY "#" // AIO key
 
 const int intervalSEN0232 = 2000; // MQTT broker publish interval
 
