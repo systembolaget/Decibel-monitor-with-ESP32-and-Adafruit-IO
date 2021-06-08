@@ -1,6 +1,6 @@
 # Physical computing wireless tutorial - Decibel monitor with ESP32 and Adafruit IO
 
-Easy Arduino TX. Monitor noisy location dB with peak hold, display on a NeoPixel RGB LED ring with FastLED, and transmit to Adafruit IO
+Easy Arduino TX. Monitor noisy location dB with peak hold and decay, display on a NeoPixel RGB LED ring with FastLED, and transmit to Adafruit IO
 
 ### Result
 
