@@ -45,7 +45,7 @@ struct CRGB ledGradient[ledCount]; // Array storing the LED's colours
 const int intervalPeakHold = 900; // Peak hold interval in milliseconds
 const int intervalPeakDecay = 50; // Peak decay interval in milliseconds
 
-const float EMA_a = 1.0; // EMA (exponential moving average) alpha factor; lower = smoother = but more lag
+const float EMA_a = 0.8; // EMA (exponential moving average) alpha factor; lower = smoother = but more lag
 
 // Instances objects from the FastLED library to set the LED ring's colours
 CHSV gradientHueStart = CHSV(96, 255, 96); // Darker at the bottom
@@ -121,7 +121,7 @@ void loop()
   {
     timeSEN0232 = millis(); // Update the timestamp for the next loop() iteration
 
-    SEN0232feed.publish((long)dBValueEMA); // Then publish the data to the AIO feed
+    SEN0232feed.publish((long)dBValue); // Then publish the data to the AIO feed
 
     triggerFlash = true; // And indicate that data will be published
   }
