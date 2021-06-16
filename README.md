@@ -10,7 +10,7 @@ Easy Arduino TX. Monitor noisy location dB with peak hold and decay, display on 
 
 ![](Assets/13e%20schematic.png)
 
-### Peak hold and decay
+### Peak hold and decay principle
 
 ![](Assets/Peak%20hold%20and%20decay.png)
 
