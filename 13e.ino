@@ -134,53 +134,49 @@ void loop()
   }
 
   // The three following blocks of code contain the peak hold and
-  // peak decay logic, based on a hold and a decay interval. First,
-  // if the new peak value (= LED position on the ring, returned
-  // from reading the sensor at each loop() iteration), is higher
-  // than the previously returned peak value
+  // peak decay logic, based on a hold and a decay interval
+
+  // If the new peak value is higher than the previous peak value
   if (newPeak >= previousPeak)
   {
-    timePeak = millis(); // Take a timestamp for the next loop() iteration
+    previousPeak = newPeak; // Set the previous peak value to the new peak value
 
-    previousPeak = newPeak; // And set the previous peak value to the new peak value
+    timePeak = millis(); // And take a timestamp of when that happened
 
-    brightnessPeak = ledBrightness; // Then set the peak LED's brightness to the maximum value
+    brightnessPeak = ledBrightness; // Then set the peak LED's brightness to that of all LEDs
 
-    decay = false; // And set the peak LED's decay flag to hold the position
+    decay = false; // And set the decay flag to false to hold the peak LED in the current position on the ring
   }
 
-  // Otherwise, if the peak LED was not yet set to decay and the
-  // peak hold interval has finally expired
+  // If the peak LED is not decaying and the peak hold interval (here 900 ms) has expired
   else if (!decay && (millis() - timePeak >= intervalPeakHold))
   {
     timePeak += intervalPeakHold; // Add the expired interval to the timestamp
 
-    decay = true; // And set the peak LED to decay
+    decay = true; // And set the peak LED to decay, so its position on the ring and its brightness can change
   }
 
-  // Otherwise, if the peak LED was set to decay and a decay
-  // interval has passed
+  // If the peak LED is set to decay and a decay interval (here 50 ms) has passed
   else if (decay && (millis() - timePeak > intervalPeakDecay))
   {
-    // And only for as long as the peak LED has not dropped to
-    // position 0 on the ring
+    // And only while the peak LED has not yet dropped to position zero the ring
     if (previousPeak > 0)
     {
-      previousPeak --; // Then lower the peak LED's position
+      previousPeak --; // Lower the peak LED's position on the ring by one
 
-      // If the peak LED's brightness has dropped below zero
+      // If the peak LED's brightness has dropped to or below zero
       if (brightnessPeak <= 0)
       {
-        brightnessPeak = 0; // Then keep it there (= off)
+        brightnessPeak = 0; // Then keep it off
       }
 
-      // Otherwise, if it has not yet dropped to zero
+      // If the peak LED's brightness has not yet dropped to zero
       else
       {
-        brightnessPeak -= 16; // Reduce the peak LED's brightness
+        brightnessPeak -= 16; // Then reduce the peak LED's brightness
       }
 
-      timePeak += intervalPeakDecay; // And add the expired interval to the timestamp
+      timePeak += intervalPeakDecay; // And add the expired decay interval to the timestamp
     }
   }
 
@@ -194,7 +190,7 @@ void loop()
     ledRing[i] = ledGradient[i];
   }
 
-  // And set the peak hold LED's colour and brightness
+  // And also set the peak hold LED's colour and brightness
   ledRing[previousPeak] = CHSV(0, 255, brightnessPeak); // Red
 
   // Then display all LED's data on the ring
