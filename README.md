@@ -2,7 +2,7 @@
 
 Easy Arduino TX. Monitor noisy location dB with peak hold and decay, display on a NeoPixel RGB LED ring with FastLED, and transmit to Adafruit IO
 
-### Result
+### Setup
 
 You can click the image to play the associated YouTube video
 
