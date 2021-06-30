@@ -6,6 +6,10 @@ Easy Arduino TX. Monitor noisy location dB with peak hold and decay, display on 
 
 ![](Assets/13e%20result.jpg)
 
+### Video
+
+[![Alt text](https://img.youtube.com/vi/4H6Es9fJvsU/0.jpg)](https://www.youtube.com/watch?v=4H6Es9fJvsU)
+
 ### Schematic
 
 ![](Assets/13e%20schematic.png)
@@ -38,4 +42,4 @@ Adafruit WiFiNINA library https://github.com/adafruit/WiFiNINA
 Adafruit MQTT library https://github.com/adafruit/Adafruit_MQTT_Library  
 Sensor https://wiki.dfrobot.com/Gravity__Analog_Sound_Level_Meter_SKU_SEN0232  
 LED ring https://learn.adafruit.com/adafruit-neopixel-uberguide/downloads  
-LED library WiFi compatible fork https://github.com/systembolaget/FastLED  
+LED library (WiFi compatible fork) https://github.com/systembolaget/FastLED  
